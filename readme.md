@@ -71,16 +71,15 @@ npm run test'
 ## Project Structure
 ```bash
 src/
+ ├── controllers/    # Route controllers
+ ├── database/       # TypeORM data source config
+ ├── dto/            # Data Transfer Objects
+ ├── entities/       # Database entities
+ ├── middleware/     # Intercept request flow
+ ├── routes/         # Entrypoint to API endpoints
+ ├── services/       # Business logic
  ├── app.ts          # Express app configuration
  ├── server.ts       # Application entry point
- ├── database/       # TypeORM data source config
- ├── entities/       # Database entities
- ├── dto/            # Data Transfer Objects
- ├── controllers/    # Route controllers
- ├── services/       # Business logic
- ├── repositories/   # TypeORM repositories
- ├── routes/         # Entrypoint to API endpoints
- ├── middleware/     # Intercept request flow
 ```
 ## API endpoints
 
