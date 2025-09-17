@@ -1,7 +1,7 @@
 # User CRUD Backend
 
 This project is a simple backend developed with **Node.js + TypeScript**, using **Express** as the main framework.  
-It implements a **User CRUD** with support for a **PostgreSQL database (via TypeORM)**, **Redis caching**, and **messaging integration (AWS SQS / RabbitMQ)**.
+It implements a **User CRUD** with support for a **PostgreSQL database (via TypeORM)**.
 
 ---
 
