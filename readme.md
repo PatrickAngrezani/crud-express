@@ -7,13 +7,12 @@ It implements a **User CRUD** with support for a **PostgreSQL database (via Type
 
 ##  Features
 
-- Create, Read, Update, and Delete users.  
-- Pagination support for listing users.  
+- Create, Read, Update, and Delete users with **Postgres** e **TypeORM**.  
 - Validation using **class-validator**.  
 - Error handling with user-friendly messages.  
 - JWT-based authentication to secure endpoints.  
 - Integration with **Redis** for caching.  
-- Messaging queue integration for asynchronous processing (AWS SQS or RabbitMQ).  
+- Automated testing with **Jest** (unit and integration tests).  
 
 ---
 
@@ -32,8 +31,8 @@ It implements a **User CRUD** with support for a **PostgreSQL database (via Type
 Clone the repository and install dependencies:
 
 ```bash
-git clone github.com/PatrickAngrezani/
-cd user-crud-backend
+git clone https://github.com/PatrickAngrezani/crud-express
+cd crud-express
 npm install
 ```
 
@@ -42,25 +41,23 @@ npm install
 Create a .env file in the root directory:
 
 ```env
+DB_PORT=5432
+DB_HOST=db
+DB_USERNAME=dbuser
+DB_PASSWORD=dbpassword
+DB_NAME=dbname
+JWT_SECRET=your-secret-jwt
 PORT=3000
-DATABASE_URL=postgres://user:password@localhost:5432/mydb
 REDIS_URL=redis://localhost:6379
-JWT_SECRET=your_jwt_secret
 ```
 
 ## Running the Project
 
-Development
+### Development
 
 ```bash
-npm run dev
-```
-
-Production
-
-```bash
-npm run build
-npm start
+docker-compose up --build
+docker-compose up -d
 ```
 
 <!-- ## Testing
@@ -83,11 +80,25 @@ src/
  ├── services/       # Business logic
  ├── repositories/   # TypeORM repositories
  ├── routes/         # Entrypoint to API endpoints
- ├── middleware/     # intercept request flow
+ ├── middleware/     # Intercept request flow
 ```
 ## API endpoints
 
-Create User
+### Login
+
+```http
+POST /api/auth/login
+Content-Type: application/json
+```
+
+```json
+{
+  "email": "login@email.com",
+  "password": "password"
+}
+```
+
+### Create User
 
 ```http
 POST /user
@@ -103,27 +114,26 @@ Content-Type: application/json
 }
 ```
 
-Get Users
+### Get Users
 
 ```http
-GET /users
+GET /api/users
 ```
 
 
-Get User
+### Get User
 
 ```http
-GET /user/:id
+GET /api/user/:id
 ```
 
 
-Update User
+### Update User
 
 ```http
-PUT /user/:ìd
+PUT /api/user/:ìd
 Content-Type: application/json
 ```
-
 
 ```json
 {
@@ -133,10 +143,10 @@ Content-Type: application/json
 }
 ```
 
-Delete User
+### Delete User
 
 ```http
-DELETE /user/:ìd
+DELETE /api/user/:ìd
 ```
 
 ## Authentication 
@@ -153,15 +163,3 @@ The system integrates with AWS SQS or RabbitMQ to handle asynchronous tasks such
 
 The Redis cache layer is used to optimize frequently accessed queries (for example, getAllUsers).
 Cache entries are invalidated automatically whenever records are updated or deleted. -->
-
-
-<!-- ```bash
-```
-
-```bash
-```
-```bash
-```
-
-```bash
-``` -->
