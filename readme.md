@@ -117,21 +117,21 @@ Content-Type: application/json
 ### Get Users
 
 ```http
-GET api/users
+GET /api/users
 ```
 
 
 ### Get User
 
 ```http
-GET api/user/:id
+GET /api/user/:id
 ```
 
 
 ### Update User
 
 ```http
-PUT api/user/:ìd
+PUT /api/user/:ìd
 Content-Type: application/json
 ```
 
@@ -146,7 +146,7 @@ Content-Type: application/json
 ### Delete User
 
 ```http
-DELETE api/user/:ìd
+DELETE /api/user/:ìd
 ```
 
 ## Authentication 
